@@ -2,16 +2,9 @@
    PORTFOLIO WEBSITE — SCRIPT.JS
    Alex Mercer Engineering Portfolio
    =================================================== */
-
-// Removed API_BASE since we are using LocalStorage backend
-const STORAGE_PREFIX = 'portfolio_';
-function getLocalData(key, def) {
-  const data = localStorage.getItem(STORAGE_PREFIX + key);
-  return data ? JSON.parse(data) : def;
-}
-function setLocalData(key, val) {
-  localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(val));
-}
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+  ? 'http://localhost:5000/api' 
+  : '/api';
 
 /* ─── DOM Ready ─── */
 document.addEventListener('DOMContentLoaded', () => {
